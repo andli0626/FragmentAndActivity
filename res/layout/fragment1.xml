@@ -2,16 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
+    android:background="#FFCF17"
     android:gravity="center"
-    android:background="#FFCF17">
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="我在等待Activity给我的指令" 
-        android:textSize="15sp"/>
+        android:text="我在等待Activity给我的指令"
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/button2"

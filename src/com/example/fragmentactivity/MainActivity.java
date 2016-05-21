@@ -14,9 +14,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	private Button button1;
 	private String fragmentName;
 	private OnButtonClickedListener buttonClickedListener;
-	/**
-	 * 定义一个Handler用于接收黄色碎片给Activity发出来的指令
-	 */
+
+	// 定义一个Handler用于接收黄色碎片给Activity发出来的指令
 	public Handler handler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
@@ -24,9 +23,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 			if (msg != null) {
 				switch (msg.what) {
 				case 100:
-					/**
-					 * 接收到黄色碎片发来的指令,Activity执行替换操作
-					 */
+					// 接收到黄色碎片发来的指令,Activity执行替换操作
 					fragmentName = Fragment2.class.getName();
 					replaceFragment(R.id.FrameLayout1, fragmentName);
 					break;
@@ -43,11 +40,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
 		button1 = (Button) findViewById(R.id.button1);
 		button1.setOnClickListener(this);
-		/**
-		 * 加载黄色碎片
-		 */
+		// 加载黄色碎片
 		fragmentName = Fragment1.class.getName();
 		replaceFragment(R.id.FrameLayout1, fragmentName);
 	}
@@ -57,20 +53,15 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.button1:
 			if (buttonClickedListener != null) {
-				buttonClickedListener
-						.onclicked("Activity:我不想要这个黄色碎片了,点击下面的按钮给我换个绿色的碎片");
+				buttonClickedListener.onclicked("Activity:我不想要这个黄色碎片了,点击下面的按钮给我换个绿色的碎片");
 			}
 			break;
 		default:
 			break;
 		}
-
 	}
 
-	/*
-	 * 
-	 * 加载碎片
-	 */
+	// 加载碎片
 	protected void replaceFragment(int viewResource, String fragmentName) {
 		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 		Fragment fragment = Fragment.instantiate(this, fragmentName);
@@ -80,28 +71,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		getSupportFragmentManager().executePendingTransactions();
 	}
 
-	/**
-	 * 定义一个接口
-	 * 
-	 * @author zqy
-	 * 
-	 */
+	// 定义一个接口
 	public interface OnButtonClickedListener {
-		/**
-		 * 里面传个值
-		 * 
-		 * @param s
-		 */
 		public void onclicked(String s);
 	}
 
-	/**
-	 * 
-	 * @param buttonClickedListener
-	 *            写一个对外公开的方法
-	 */
-	public void setButtonClickedListener(
-			OnButtonClickedListener buttonClickedListener) {
+	// 写一个对外公开的方法
+	public void setButtonClickedListener(OnButtonClickedListener buttonClickedListener) {
 		this.buttonClickedListener = buttonClickedListener;
 	}
 

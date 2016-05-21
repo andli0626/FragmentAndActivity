@@ -6,16 +6,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:background="#3192DB"
         android:gravity="center"
-        android:background="#3192DB" >
+        android:orientation="horizontal" >
 
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="点击我让碎片显示我的指令" />
-            
     </LinearLayout>
 
     <FrameLayout
