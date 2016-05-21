@@ -64,6 +64,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	// 加载碎片
 	protected void replaceFragment(int viewResource, String fragmentName) {
 		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+		// ft.addToBackStack(null); 
 		Fragment fragment = Fragment.instantiate(this, fragmentName);
 		ft.replace(viewResource, fragment);
 		ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
